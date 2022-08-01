@@ -24,7 +24,7 @@ thanks for reading this breif about my project. This project is a e-commerece pr
 second step 
 go to project folder and get cmd in this folder run this command 'npm install' to install dependencies and node modules.
 
-then now you can run the project by the next topic Development server
+then now you can run the project by the next topic 'Development server'
 
 
 
