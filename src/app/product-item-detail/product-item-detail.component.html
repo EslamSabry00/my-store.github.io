@@ -1,0 +1,30 @@
+<div class="row container justify-content-center align-items-center pt-5 mt-5">
+    <div class="col-md-5 d-flex justify-content-center pb-2">
+        <img [src]="itemToShow.url" class="w-50 rounded">
+    </div>
+    <div class="col-md-3 d-flex justify-content-center ">
+        <div>
+            <h1>{{itemToShow.name}}</h1>
+            <h2 class="fs-5">${{itemToShow.price}}</h2>
+            <h2 class="fs-5">{{itemToShow.description}}</h2> 
+            <select #selecteditem name="quantity" id="quantity" class="w-25" [(ngModel)]="quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <div class="mt-1">
+                <button (click)="setToCart(selecteditem)" lass="btn btn-primary">Add to cart</button>
+            </div>      
+            <div class="mt-1">
+                <a class="text-primary text-decoration-none" routerLink="/productlist"><i class="fa-solid fa-arrow-left-long"></i> Back to product list</a>
+            </div>       
+        </div>
+    </div>
+</div>

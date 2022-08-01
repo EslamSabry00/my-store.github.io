@@ -1,0 +1,25 @@
+
+    <div   >
+        <div class="p-3 border border-info w-60 d-flex justify-content-center m-auto" >
+            <img [src]="dataFromParent.url" class="w-100" [routerLink]="['/item/',dataFromParent.id]">
+        </div>
+        <h2 class="text-center fs-6">{{dataFromParent.name}}</h2>
+        <h2 class="text-center fs-6">${{dataFromParent.price}}</h2>
+        <div class="d-flex justify-content-center">
+            <select #selecteditem [name]="dataFromParent.id" [id]="dataFromParent.id" class="w-25" [(ngModel)]="quantity" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+        </div>
+        <div class="d-flex justify-content-center mt-1">
+            <button class="btn btn-primary" (click)="setToCart(selecteditem)">Add to cart</button>
+        </div>
+    </div>

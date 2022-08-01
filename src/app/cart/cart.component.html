@@ -1,0 +1,38 @@
+
+<div class="container p-5">
+    <div class=" row justify-content-center">
+        <div class="col-md-6" *ngIf="data.length>0 else noDATA">
+            <div *ngFor="let item of data" class="row my-3">
+                <div class="col-md-7 d-flex justify-content-end">
+                    <img [src]="item.url" class="w-20 rounded">
+                </div>
+                <div class="col-md-5 d-flex justify-content-end">
+                    <div>
+                        <h1 class="fs-4 w-fit">{{item.name}}</h1>
+                        <h2 class="fs-6 w-fit">${{item.price}}</h2>
+                        <div class="fs-6 w-auto">Amount: <input [name]="item.name" type="number" class="w-25" [(ngModel)]="item.quantity" (ngModelChange)="onChange(item.quantity,item)" ></div>
+                        <a class="text-danger" (click)="deleatFromCart(item.id,data,item)">Deleat from cart</a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <h1 class="fs-4 text-end">Total Price: {{calcTotalPrice}}</h1>
+        </div>
+        <ng-template #noDATA class="col-md-6">
+            <h1 class="text-center">ther are no products added to your cart</h1>
+        </ng-template>
+        <div class="col-md-6">
+           <form [formGroup]="submitForm">
+             <label>Full name</label>
+             <input formControlName="username" type="text" class="form-control w-50 my-2" placeholder="(minimum 3 characters)" >
+             <label>Address</label>
+             <input formControlName="address" type="text" class="form-control w-50 my-2" placeholder="(minimum 6 characters)"> 
+             <label>Credit card number</label>
+             <input formControlName="credit" class="form-control w-50 my-2" placeholder="16-digit number" type="numper">
+             <p>We'll never share your payment details with anyone else.</p>
+             <button [disabled]="submitForm.invalid" type="submit" routerLink="/confirm" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+           </form>
+        </div>
+    </div>
+</div>
